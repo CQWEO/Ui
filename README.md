@@ -1,4 +1,3 @@
-if game.PlaceId == 6839171747 then  --- Doors(Game)
 local IMAGE = "rbxassetid://63737841976556"
 
 local Positions = UDim2.new(0.822025776, 0, 0.0401606411, 0)
