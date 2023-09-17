@@ -1,5 +1,44 @@
+local IMAGE = "rbxassetid://7166739220"
 
+local Positions = UDim2.new(0.822025776, 0, 0.0401606411, 0)
 
+local Sizes = UDim2.new(0, 76, 0, 70)
+
+local KINGHUBMOBILE = Instance.new("ScreenGui")
+
+local _100x100 = Instance.new("Frame")
+
+local ImageButton = Instance.new("ImageButton")
+
+KINGHUBMOBILE.Name = "GUI CLICK"
+
+KINGHUBMOBILE.Parent = game:WaitForChild("CoreGui")
+
+KINGHUBMOBILE.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+_100x100.Name = "100x100"
+
+_100x100.Parent = KINGHUBMOBILE
+
+_100x100.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+_100x100.Position = Positions
+
+_100x100.Size = UDim2.new(0, 76, 0, 70)
+
+ImageButton.Parent = _100x100
+
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+ImageButton.Size = Sizes
+
+ImageButton.Image = IMAGE
+
+ImageButton.MouseButton1Down:connect(function()
+	local vim = game:service("VirtualInputManager")	vim:SendKeyEvent(true, "RightShift", false, game)
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(fales, "RightShift", false, game)
+end)
 local WorkspacePlayers = game:GetService("Workspace").Game.Players;
 local Players = game:GetService('Players');
 local localplayer = Players.LocalPlayer;
