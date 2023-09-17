@@ -539,7 +539,7 @@ Tab:Toggle("Noclip","Lets you walk through any object. Does not work on Doors.",
     end
     PrimaryPart.CanCollide = not Noclip
 end)
-Tab:Slider("Speed Boost AUTO ","Boosts your speed.",0,6,6,function(speed)
+Tab:Slider("Speed Boost","Boosts your speed.",0,6,0,function(speed)
     SpeedBoost = speed
     ApplySpeed(true)
 end)
@@ -609,29 +609,7 @@ if Floor.Value == "Hotel" or Floor.Value == "Fools" then
         end
     end)
 end
-Tab:Toggle("Waste Other Players Items","Repeatedly uses everyone else's items like Vitamins, The Lighter, and The Flashlight.",false,function(Bool)
-    WasteItems = Bool
-    while task.wait(1) do
-        if not WasteItems then
-            break
-        end
-        for _,Player in pairs(Players:GetPlayers()) do
-            local function WasteItem(Item)
-                if Item.Parent ~= Character and Item.Parent.Parent ~= LocalPlayer then
-                    if ((Item.Name == "Lighter" or Item.Name == "Flashlight") and Item:GetAttribute("Enabled") == false) or Item.Name == "Vitamins" then
-                        Item.Remote:FireServer()
-                    end
-                end
-            end
-            for _,Item in pairs(Player.Backpack:GetChildren()) do
-                WasteItem(Item)
-            end
-            for _,Item in pairs(Player.Character:GetChildren()) do
-                WasteItem(Item)
-            end
-        end
-    end
-end)
+if Floor.Value == "Rooms" then
 Tab2:Toggle("Disable A-90","Disables A-90 visual, sound, and damage.",false,function(Bool)
         DisableA90 = Bool
     end)
@@ -680,15 +658,6 @@ if Floor.Value == "Hotel" or Floor.Value == "Fools" then
         DisableTimothy = Bool
     end)
 end
-Tab2:Toggle("Spam Motor Replication","Other players will basically see you having a seizure.",false,function(Bool)
-    if Bool then
-        SpoofMotor = game:GetService("RunService").Heartbeat:Connect(function()
-            MotorReplication:FireServer(math.random(1,100000),math.random(1,100000),math.random(1,100000),false)
-        end)
-    else
-        SpoofMotor:Disconnect()
-    end
-end)
 if Floor.Value == "Hotel" or Floor.Value == "Fools" then
     Tab2:Toggle("Unbreakable Lights","Makes it so entities like Rush and Ambush won't shatter/break the lights (which makes the room dark)",false,function(Bool)
         if Bool then
