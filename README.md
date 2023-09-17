@@ -193,7 +193,7 @@ local function ApplySettings(Object)
                 if IsValid then
                     if Bool then
                         local TXT = IsValid[1]
-                        if IsValid[1] == "Door" then
+                        if IsValid[1] == "Cửa" then
                             local RoomName
                             if Floor.Value == "Rooms" then
                                 RoomName = ""
@@ -539,7 +539,7 @@ Tab:Toggle("Noclip","Lets you walk through any object. Does not work on Doors.",
     end
     PrimaryPart.CanCollide = not Noclip
 end)
-Tab:Slider("Speed Boost","Boosts your speed.",0,6,0,function(speed)
+Tab:Slider("Speed Boost","Boosts your speed.",6,6,6,function(speed)
     SpeedBoost = speed
     ApplySpeed(true)
 end)
@@ -632,8 +632,7 @@ Tab:Toggle("Waste Other Players Items","Repeatedly uses everyone else's items li
         end
     end
 end)
-if Floor.Value == "Rooms" then
-    Tab2:Toggle("Disable A-90","Disables A-90 visual, sound, and damage.",false,function(Bool)
+Tab2:Toggle("Disable A-90","Disables A-90 visual, sound, and damage.",false,function(Bool)
         DisableA90 = Bool
     end)
 end
