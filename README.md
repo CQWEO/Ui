@@ -754,8 +754,6 @@ mt.__namecall = newcclosure(function(remote,...)
 end)
 setreadonly(mt,true)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/finngameandglitch/bypass/main/bypass'))()
--- Constants
-
 local REMOVE_BANANA_PEELS = true
 local REMOVE_JEFFTHEKILLER_HITBOX = true -- makes jeff unable to deal damage
 local REMOVE_GREED_RISK = true -- makes you unable to collect gold when you risk taking damage from greed
@@ -763,20 +761,9 @@ local REMOVE_AMBIENCE_SOUNDS = false -- not that necessary but if you want to he
 local REMOVE_EYES_DAMAGE = true -- makes eyes deal no damage
 local REMOVE_SCREECH = true
 local REMOVE_LIGHT_SHATTER = true -- makes lights not shatter from any entity moving (screech will still appear unless removed)
-local REMOVE_LIBRARY_DOOR = true -- you can just go past it without doing the padlock
-
-local COMPLETE_ELEVATOR_MINIGAME = false -- elevator breaker (be ready to run)
--- creates a guiding light so you know where to go
-local MARK_NEXT_DOOR = false
-local MARK_KEY_PICKUP = false
-local MARK_GATE_LEVER = false
-local MARK_HINT_BOOKS = false
-local MARK_ELEVATOR_BREAKER_POLES = false -- for room 100
 
 local SPEED_BOOST_ENABLED = true
 local BOOST_EXTRA_WALKSPEED = 6 -- above makes you teleport back by anticheat
-
-local CREATE_ENTITY_HINTS = true -- watch your topbar for hints when entities spawn
 
 --- don't touch below (you can however change light properties, color is (red, green, blue) up to 255)
 
@@ -791,7 +778,7 @@ local CurrentRooms = workspace:WaitForChild("CurrentRooms")
 
 local LocalPlayer = PlayersService.LocalPlayer
 
---
+-- Anti
 
 local Hint, OnRemovalConnection
 local function HandleModels(model)
@@ -872,68 +859,6 @@ end
 instance:GetAttributeChangedSignal(attribute):Wait()
 
 return isValid()
-end
-
-local function handleDescendant(descendant)
-local guidingLight = Instance.new("PointLight")
-if MARK_NEXT_DOOR and descendant.Name == "Door" and waitForAttribute(descendant, "RoomID", nextRoomId) then
-guidingLight.Range = 40
-guidingLight.Color = Color3.fromRGB(255, 255, 255)
-guidingLight.Shadows = false
-guidingLight.Parent = descendant:WaitForChild("Door", 5)
-elseif MARK_KEY_PICKUP and descendant.Name == "KeyObtain" and waitForAttribute(descendant, "LockID", nextRoomNumber) then
-local hitbox = descendant:WaitForChild("Hitbox", 5)
-local keyBase = hitbox and hitbox:WaitForChild("Key", 5)
-if keyBase then
-local hintAttachment = keyBase:WaitForChild("Attachment", 5)
-local hintLight = hintAttachment and hintAttachment:WaitForChild("PointLight", 5)
-if hintLight then
-hintLight.Enabled = true
-hintLight.Shadows = true
-hintLight.Range = 60
-hintLight.Brightness = 2
-end
-end
-elseif MARK_GATE_LEVER and descendant.Name == "LeverForGate" then
-guidingLight.Range = 60
-guidingLight.Color = Color3.fromRGB(0, 255, 255)
-guidingLight.Shadows = true
-guidingLight.Parent = descendant:WaitForChild("Main", 5)
-elseif MARK_HINT_BOOKS and descendant.Name == "LiveHintBook" then
-guidingLight.Range = 20
-guidingLight.Color = Color3.fromRGB(255, 0, 255)
-guidingLight.Shadows = false
-guidingLight.Parent = descendant:WaitForChild("Base", 5)
-elseif MARK_ELEVATOR_BREAKER_POLES and isTheEnd and descendant.Name == "LiveBreakerPolePickup" then
-local base = descendant:WaitForChild("Base", 5)
-local hintAttachment = base and base:WaitForChild("Attachment", 5)
-if hintAttachment then
-local hintParticle = hintAttachment:WaitForChild("HintParticle", 5)
-local hintLight = hintAttachment:WaitForChild("HintLight", 5)
-if hintParticle then
-hintParticle.Enabled = true
-end
-if hintLight then
-hintLight.Enabled = true
-end
-end
-end
-end
-
-if REMOVE_LIBRARY_DOOR and isLibrary then
-task.wait()
-
-local door = room:WaitForChild("Door", 60)
-if door then
-door:Destroy()
-end
-end
-
-for _, descendant in ipairs(room:GetDescendants()) do
-task.spawn(handleDescendant, descendant)
-end
-
-room.DescendantAdded:Connect(handleDescendant)
 end
 
 local function HandleLoot(prompt)
@@ -1096,47 +1021,6 @@ end
 
 return originalNC(self, ...)
 end, true)
-end
-
-if COMPLETE_ELEVATOR_MINIGAME then
-local engageMinigame = entityInfo:WaitForChild("EngageMinigame", 5)
-local elevatorBreakerFinished = entityInfo:WaitForChild("EBF", 5)
-if not engageMinigame or not elevatorBreakerFinished then
-return
-end
-
-local minigameFunction
-
-for _, connection in ipairs(getconnections(engageMinigame.OnClientEvent)) do
-local func = connection.Function
-if not func then
-return -- ???
-end
-
-local minigame = debug.getupvalue(func, 1)
--- grab minigame func
-if not minigameFunction and type(minigame) == "function" then
-minigameFunction = minigame
-end
-
-connection:Disable()
-end
--- create our own handler (i dont want to use hookfunction that much)
-engageMinigame.OnClientEvent:Connect(function(minigame, ...)
-if minigame == "ElevatorBreaker" then
-task.wait(20)
--- mark as completed
-elevatorBreakerFinished:FireServer()
-return
-end
-
-if not minigameFunction then
-return
-end
-
-task.spawn(minigameFunction, minigame, ...)
-end)
-end
 end
 
 local function SetUp()
