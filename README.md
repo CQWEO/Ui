@@ -1,4 +1,4 @@
-local IMAGE = "rbxassetid://63737841976556"
+local IMAGE = "rbxassetid://637373817841"
 
 local Positions = UDim2.new(0.822025776, 0, 0.0401606411, 0)
 
@@ -10,13 +10,13 @@ local _100x100 = Instance.new("Frame")
 
 local ImageButton = Instance.new("ImageButton")
 
-KINGHUBMOBILE.Name = "YIEVIRO92CREEPY?HELPMEPLSYOU!"
+KINGHUBMOBILE.Name = "YIEVIRO92CREEPY?HELPMEPLEASEA.."
 
 KINGHUBMOBILE.Parent = game:WaitForChild("CoreGui")
 
 KINGHUBMOBILE.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-_100x100.Name = "125x125"
+_100x100.Name = "100x100"
 
 _100x100.Parent = KINGHUBMOBILE
 
@@ -26,7 +26,7 @@ _100x100.Position = Positions
 
 _100x100.Size = UDim2.new(0, 76, 0, 70)
 
-ImageButton.Parent = _125x125
+ImageButton.Parent = _100x100
 
 ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 
@@ -39,6 +39,7 @@ ImageButton.MouseButton1Down:connect(function()
 	local vim = game:service("VirtualInputManager")
 	vim:SendKeyEvent(fales, "RightControl", false, game)
 end)
+
 if game.CoreGui:FindFirstChild("FluxLib") or game.CoreGui:FindFirstChild("Message") then return end
 
 local Flux = loadstring(game:HttpGet("https://lolcat.boo/assets/flux-fixed"))()
