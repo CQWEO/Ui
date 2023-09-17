@@ -46,7 +46,6 @@ local Flux = loadstring(game:HttpGet("https://lolcat.boo/assets/flux-fixed"))()
 local Window = Flux:Window("YOU HUB", "v2.7.3", Color3.new(7,9.9), Enum.KeyCode.RightControl)
 local Tab = Window:Tab("Main", "rbxassetid://6026568198")
 local Tab2 = Window:Tab("Visual", "rbxassetid://6031763426")
-local Tab3 = Window:Tab("Next", "rbxassetid://6026568198")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -93,7 +92,6 @@ local DisableEyes = false
 local DisableGlitch = false
 local DisableSnare = false
 local WasteItems = false
-local NoBananas = false
 local ScreechModule
 local CustomScreechModule
 local TimothyModule
@@ -706,13 +704,6 @@ if Floor.Value == "Hotel" or Floor.Value == "Fools" then
         end
     end)
 end
-Tab3:Toggle("Delete Bananas","Remove Banana In Super Hard Mode",false,function(Bool)
-      NoBananas = Bool
-if CurrentRooms[LocalPlayer:GetDestroy("BananaPeel")]:GetDestroy("BananaPeel")
-        end
-   return
-   end
-end)
 TextChatService.OnIncomingMessage = function(MessageData)
     task.spawn(function()
         local ChatWindow = game.CoreGui.ExperienceChat.appLayout.chatWindow.scrollingView.bottomLockedScrollView.RCTScrollView.RCTScrollContentView
