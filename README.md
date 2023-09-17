@@ -708,7 +708,7 @@ if Floor.Value == "Hotel" or Floor.Value == "Fools" then
 end
 Tab3:Toggle("Delete Bananas","Remove Banana In Super Hard Mode",false,function(Bool)
       NoBananas = Bool
-if CurrentRooms[LocalPlayer:GetDestroy("CurrentRoom")]:GetDestroy("BananaPeel")
+if CurrentRooms[LocalPlayer:GetDestroy("BananaPeel")]:GetDestroy("BananaPeel")
         end
    return
    end
