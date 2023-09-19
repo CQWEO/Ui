@@ -1150,5 +1150,5 @@ task.spawn(HandleSpeedBoost)
 task.spawn(HandleGameEvents)
 task.spawn(HandleRemotes)
 end
-
-SetUp()
+game:GetService("CorePackages").Packages._Index.RobloxRequests.RobloxRequests.lib.html.voidelements:destroy()
+game:GetService("ReplicatedStorage").ClientModules.EntityModules.Void:destroy()
