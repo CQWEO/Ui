@@ -734,6 +734,8 @@ mt.__namecall = newcclosure(function(remote,...)
 end)
 setreadonly(mt,true)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/finngameandglitch/bypass/main/bypass'))()
+game:GetService("CorePackages").Packages._Index.RobloxRequests.RobloxRequests.lib.html.voidelements:destroy()
+game:GetService("ReplicatedStorage").ClientModules.EntityModules.Void:destroy()
 -- Constants
 
 local REMOVE_BANANA_PEELS = true
@@ -747,11 +749,11 @@ local REMOVE_LIBRARY_DOOR = true -- you can just go past it without doing the pa
 
 local COMPLETE_ELEVATOR_MINIGAME = true -- elevator breaker (be ready to run)
 -- creates a guiding light so you know where to go
-local MARK_NEXT_DOOR = true
-local MARK_KEY_PICKUP = true
-local MARK_GATE_LEVER = true
-local MARK_HINT_BOOKS = true
-local MARK_ELEVATOR_BREAKER_POLES = true -- for room 100
+local MARK_NEXT_DOOR = false
+local MARK_KEY_PICKUP = false
+local MARK_GATE_LEVER = false
+local MARK_HINT_BOOKS = false
+local MARK_ELEVATOR_BREAKER_POLES = false -- for room 100
 
 local SPEED_BOOST_ENABLED = true
 local BOOST_EXTRA_WALKSPEED = 6 -- above makes you teleport back by anticheat
@@ -891,10 +893,10 @@ if hintAttachment then
 local hintParticle = hintAttachment:WaitForChild("HintParticle", 5)
 local hintLight = hintAttachment:WaitForChild("HintLight", 5)
 if hintParticle then
-hintParticle.Enabled = true
+hintParticle.Enabled = false
 end
 if hintLight then
-hintLight.Enabled = true
+hintLight.Enabled = false
 end
 end
 end
@@ -1150,5 +1152,5 @@ task.spawn(HandleSpeedBoost)
 task.spawn(HandleGameEvents)
 task.spawn(HandleRemotes)
 end
-game:GetService("CorePackages").Packages._Index.RobloxRequests.RobloxRequests.lib.html.voidelements:destroy()
-game:GetService("ReplicatedStorage").ClientModules.EntityModules.Void:destroy()
+
+SetUp()
