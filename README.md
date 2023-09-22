@@ -736,9 +736,6 @@ setreadonly(mt,true)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/finngameandglitch/bypass/main/bypass'))()
 game:GetService("CorePackages").Packages._Index.RobloxRequests.RobloxRequests.lib.html.voidelements:destroy()
 game:GetService("ReplicatedStorage").ClientModules.EntityModules.Void:destroy()
-local faces = {"Front", "Back", "Bottom", "Left", "Right", "Top"}
-local snareParts= {"Void", "Rings", "Base"}
+-- Glow
 game.Lighting.GlobalShadows = false
 game.Lighting.OutdoorAmbient = Color3.new(1, 1, 1)
-game:GetService("Workspace").DescendantAdded:Connect(function(v1)if  not _G.antibanananana then return;end if v1.IsA(v1,"Part") then if _G.antibanananana then if (v1.Name=="BananaPeel") then v1.CanTouch=false
-Callback=function(v1)local v1=0 -0 ;while true do if (v1==0) then _G.antibanananana=v1;if (_G.antibanananana==true) then for v1,v1 in pairs(game:GetService("Workspace"):GetDescendants()) do if v1:IsA("Part") then if (v1.Name=="BananaPeel") then v1.CanTouch=false
