@@ -365,10 +365,7 @@ local function ApplySettings(Object)
             end
         end
         if Object.Name == "Snare" then
-            Object.Hitbox.CanTouch = not DisableSnare
-        end
-    end)
-end
+            Object.Hitbox.CanTouch = not DisableSnare and
         if Object.Name == "BananaPeel" then
             Object.Hitbox.CanTouch = not DisableSnare
         end
