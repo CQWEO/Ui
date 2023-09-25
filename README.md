@@ -469,10 +469,10 @@ if Floor.Value == "Hotel" or Floor.Value == "Fools" then
             end
         end
     end)
-    Tab:Toggle("Disable Snare And Bananas","Makes it so you won't get stunned or take damage from Snare when stepping on it.",false,function(Bool)
+    Tab:Toggle("Disable Snare And Gates","Makes it so you won't get stunned or take damage from Snare when stepping on it.",false,function(Bool)
         DisableSnare = Bool
         for _,Object in pairs(workspace.CurrentRooms:GetDescendants()) do
-            if Object.Name == "BananaPeel" > Object.Name == "Snare" then
+            if Object.Name == "Snare" > Object.Name == "Gate" then
                 ApplySettings(Object)
             end
         end
