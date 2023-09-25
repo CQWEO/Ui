@@ -365,8 +365,6 @@ local function ApplySettings(Object)
             end
         end
         if Object.Name == "Snare" then
-            Object.Hitbox.CanTouch = not DisableSnare and
-        if Object.Name == "BananaPeel" then
             Object.Hitbox.CanTouch = not DisableSnare
         end
     end)
@@ -474,7 +472,7 @@ if Floor.Value == "Hotel" or Floor.Value == "Fools" then
     Tab:Toggle("Disable Snare And Bananas","Makes it so you won't get stunned or take damage from Snare when stepping on it.",false,function(Bool)
         DisableSnare = Bool
         for _,Object in pairs(workspace.CurrentRooms:GetDescendants()) do
-            if Object.Name == "BananaPeel" and if Object.Name == "Snare" then
+            if Object.Name == "BananaPeel" > Object.Name == "Snare" then
                 ApplySettings(Object)
             end
         end
