@@ -637,8 +637,8 @@ Tab2:Toggle("Entity ESP","Highlights all hostile entities.",false,function(Bool)
         end
     end
 end)
-Tab2:Colorpicker("ESP Color", Color3.fromRGB(255,1,1), function(Bool)
-print(Bool)
+Tab2:Colorpicker("ESP Color", Color3.fromRGB(255,1,1), function(t)
+print(t)
 end)
 Tab2:Toggle("Item ESP","Highlights items like Keys, Books, and Crucifixes through walls.",false,function(Bool)
     ItemESP = Bool
